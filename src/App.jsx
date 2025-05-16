@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { ConnectionProvider } from "@solana/wallet-adapter-react"
 import { WalletProvider } from "@solana/wallet-adapter-react"
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui"
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <ConnectionProvider endpoint="https://methodical-wandering-panorama.solana-devnet.quiknode.pro/f4c5a1476b0cd168aae7065c2141e9e8bf879cb6/">
+      <ConnectionProvider endpoint={import.meta.env.VITE_RPC_URL}>
         <WalletProvider wallets={[]} autoConnect>
           <WalletModalProvider>
            <Routes>
